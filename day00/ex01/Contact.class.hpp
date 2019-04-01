@@ -60,5 +60,6 @@ private:
 
 Contact addcon(void);
 void	search(Contact book[], int index);
+void 	show(Contact book[], int index);
 
 #endif

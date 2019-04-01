@@ -27,7 +27,14 @@ void	search(Contact book[], int index)
 	std::cout << book[index].gDarkest_secret() <<std::endl;
 }
 
-void 	show(Contact book[])
+void 	show(Contact book[], int index)
 {
-	
+	for (int i = 0; i < index; i++)
+	{
+		std::cout << i;
+		std::cout << std::setw(10) << book[i].gfirtstName();
+		std::cout << book[i].glastName();
+		std::cout << book[i].gnickName();
+		std::cout << std::endl;
+	}
 }

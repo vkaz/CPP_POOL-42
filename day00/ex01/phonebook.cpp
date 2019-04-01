@@ -26,20 +26,21 @@ int		main(void)
 		if (name == "EXIT")
 			break ;
 		else if (name == "ADD" && index < 7)
-		{
-			std::cout <<"add"<< std::endl;
 			contact[index++] = addcon();
-		}
 		else if (name == "SEARCH")
 		{
-			std::cout << "Enter index: ";
-			std::cin >> i;
 			if (index == 0)
 				std::cout << "EROOR! Book is empty!";
-			else if (i < index )
-				search(contact, i);
 			else
-				std::cout << "EROOR! Index bigger than numbers of users!";
+			{
+				show(contact, index);
+				std::cout << "Enter index: ";
+				std::cin >> i;
+				if (i < index )
+					search(contact, i);
+				else
+					std::cout << "EROOR! Index bigger than numbers of users!";
+			}
 		}
 	}
 	return 0;
