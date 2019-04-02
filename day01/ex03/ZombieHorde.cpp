@@ -33,7 +33,6 @@ void        ZombieHorde::announce(void)
 }
 std::string		ZombieHorde::randomChump(void)
 {
-	Zombie 		*zomb;
 	std::string	names[] = {"qwe", "asd", "zxc", "tyu", "zxc", "sdf", "asd2"};
 	int i = std::rand() % 7;
 	return (names[i]);
