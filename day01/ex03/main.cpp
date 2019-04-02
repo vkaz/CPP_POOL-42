@@ -11,13 +11,11 @@
 /* ************************************************************************** */
 
 #include "ZombieHorde.hpp"
-#include "Zombie.hpp"
 
 int 	main(void)
 {
-    ZombieHorde z1 = ZombieHorde(2);
-    ZombieHorde z2 = ZombieHorde();
+    std::srand(time(0));
+    ZombieHorde z1(7);
     z1.announce();
-    z2.announce();
     return (0);
 }

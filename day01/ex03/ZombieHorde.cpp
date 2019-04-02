@@ -16,7 +16,7 @@ ZombieHorde::ZombieHorde(int n)
 {
     this->n = n;
     this->zomb = new Zombie[n];
-    for (int i = 0; i < this->n; i += 1)
+    for (int i = 0; i < this->n; i++)
     {
         this->zomb[i].stype("ZombType");
         this->zomb[i].sname(this->randomChump());
@@ -36,6 +36,5 @@ std::string		ZombieHorde::randomChump(void)
 	Zombie 		*zomb;
 	std::string	names[] = {"qwe", "asd", "zxc", "tyu", "zxc", "sdf", "asd2"};
 	int i = std::rand() % 7;
-
 	return (names[i]);
 }
