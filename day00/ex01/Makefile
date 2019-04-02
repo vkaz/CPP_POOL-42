@@ -16,13 +16,13 @@ RED=\033[31m
 YELL=\033[33m
 
 NAME     := phonebook
-SRCS     := phonebook.cpp addcon.cpp Contact.class.cpp search.cpp
+SRCS     := phonebook.cpp Contact.class.cpp
 HEADER   := Contact.class.hpp
 
 OBJS     := $(SRCS:.cpp=.o)
 
 CLANG      := clang++
-CLANGFLAGS := -Wall -Werror -Wextra
+CLANGFLAGS := -std=c++98 -Wall -Werror -Wextra
 
 all: $(NAME)
 
