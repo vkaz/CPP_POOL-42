@@ -10,6 +10,7 @@ int main(int argc, char **argv)
         std::string filename = argv[1];
         std::string s1 = argv[2];
         std::string s2 = argv[3];
+        std::string p = " ";
         size_t i;
         unsigned long i2;
         if (!filename.empty() && !s1.empty() && !s2.empty())
@@ -33,12 +34,11 @@ int main(int argc, char **argv)
                     {
                         while (s3[i + i2] == s1[i2])
                             i2++;
-                        std::cout << i << " " << i2 << std::endl;
                         s3.erase(i, i2);
                         if (i == 0)
                             s3 = s2 + s3;
-                        else s3.append(s2);
-                        std::cout << s3 << std::endl;
+                        else
+                            s3.append(s2);
                     }
                 }
                 out_file << s3 << std::endl;
