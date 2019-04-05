@@ -15,7 +15,7 @@ FragTrap::FragTrap(FragTrap const &src)
 }
 FragTrap::FragTrap(std::string name) 
 {
-    std::cout << "ScavTrap constructor with string" << std::endl;
+    std::cout << "FragTrap constructor with string" << std::endl;
 	this->name = name;
     this->_hp = 100;
     this->_maxhp = 100;
@@ -54,22 +54,6 @@ FragTrap	&FragTrap::operator=(FragTrap const &rhs)
 	return *this;
 }
 
-void FragTrap::rangedAttack(std::string const & target)
-{
-    this->_vaul = this->_rangedDamege;
-    std::cout << "FR4G-TP <" << this->name
-		<< "> attacks <" << target
-		<< "> at range, causing <" 
-		<< this->_rangedDamege << "> points of damage !" << std::endl;
-}
-void FragTrap::meleeAttack(std::string const & target)
-{
-    this->_vaul = this->_meleeDamage;
-    std::cout << "FR4G-TP <" << this->name
-		<< "> attacks <" << target
-		<< "> at range, causing <" 
-		<< this->_meleeDamage << "> points of damage !" << std::endl;
-}
 void FragTrap::laserAttack(std::string const & target)
 {
     this->_vaul = this->_laserA;
@@ -111,37 +95,6 @@ void FragTrap::psyAttack(std::string const & target)
 		<< this->_psyA<< "> points of damage !" << std::endl;
 }
 
-void FragTrap::takeDamage(unsigned int amount)
-{
-    unsigned int    damage;
-
-    damage = amount - this->_armour;
-    if (damage > this->_hp)
-    {
-        this->_hp = 0;
-        std::cout << this->name << ": I'm die!" << std::endl;
-    }
-    else
-    {
-        this->_hp -= damage;
-        std::cout << this->name << ": I'm still alive!" << std::endl;
-        std::cout << "Damage: " << damage << std::endl;
-        std::cout << "HP left: " << this->_hp << " / " << this->_maxhp << std::endl;
-    }
-}
-void FragTrap::beRepaired(unsigned int amount)
-{
-    if (this->_ep < amount)
-        std::cout << this->name << ": Not enough energy!" << std::endl;
-    else if ((amount + this->_hp) <= 100)
-    {
-        this->_ep -= amount;
-        this->_hp = amount + this->_hp;
-        std::cout << this->name << ": Healing!" << std::endl;
-        std::cout << "HP points: " << this->_hp << std::endl;
-    }
-    std::cout << "Energy points left: " << this->_ep << std::endl;
-}
 void FragTrap::vaulhunter_dot_exe(std::string const & target)
 {
     int   random;
@@ -167,25 +120,6 @@ void FragTrap::vaulhunter_dot_exe(std::string const & target)
         else
             FragTrap::psyAttack(target);
     }
-}
-std::string FragTrap::getName(void)
-{
-    return (this->name);
-}
-
-unsigned int FragTrap::getMeleeAttackDamage(void)
-{
-    return (this->_meleeDamage);
-}
-
-unsigned int FragTrap::getRangedAttackDamage(void)
-{
-    return (this->_rangedDamege);
-}
-
-unsigned int FragTrap::getArmourDamageReduction(void)
-{
-    return (this->_armour);
 }
 
 unsigned int FragTrap::getVaulHunter_dot_exeDamage(void)
